@@ -14,3 +14,13 @@ git clone https://github.com/cristianradu/dotfiles.git ~/dotfiles
 ```
 
 Init script will source all dotfiles and automatically add itself to `~/.bashrc`
+
+### Update
+
+To keep the files up to date, run the update script:
+
+```
+~/dotfiles/update.sh
+```
+
+This will do a `git pull` and re-run the init script.
