@@ -3,7 +3,7 @@
 cd ~/dotfiles
 git pull
 
-for DOTFILE in `list.sh`
+for dotfile in `~/dotfiles/list.sh`
 do
-    [ -f "$DOTFILE" ] && source "$DOTFILE"
+    [ -f "$dotfile" ] && source "$dotfile"
 done
