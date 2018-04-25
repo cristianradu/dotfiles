@@ -1,18 +1,23 @@
 #!/bin/bash
 
-dotfilesUrl="https://github.com/cristianradu/dotfiles"
+# source dotfiles
+for dotfile in `~/dotfiles/list.sh`
+do
+    [ -f "$dotfile" ] && source "$dotfile"
+done
 
-if grep -q $dotfilesUrl ~/.bashrc; then
+
+# add this script to .bashrc (if not already there)
+dotfilesInit="~/dotfiles/init.sh"
+
+if grep -q $dotfilesInit ~/.bashrc; then
     exit 0
 fi
 
 cat >> ~/.bashrc <<EOL
 
 # dotfiles
-# $dotfilesUrl
-for dotfile in \`~/dotfiles/list.sh\`
-do
-    [ -f "\$dotfile" ] && source "\$dotfile"
-done
+# https://github.com/cristianradu/dotfiles
+$dotfilesInit
 
 EOL
