@@ -1,3 +1,9 @@
 #!/bin/bash
 
-find ~/dotfiles -type f | grep -v "/.git" | grep -v "README" | grep -v ".sh"
+find ~/dotfiles -name ".[^.]*" -type f \
+    | grep -v ".gitignore" \
+    | grep -v ".DS_Store" \
+    | sort
+
+find ~/dotfiles/functions -type f \
+    | sort

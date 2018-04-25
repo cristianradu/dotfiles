@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# mk
+# creates a new directory and enters it
+#
+# usage: mk dirname
+
+mk () {
+	mkdir -p "$@" && cd "$@"
+}
+
+export -f mk
