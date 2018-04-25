@@ -3,7 +3,7 @@
 cd ~/dotfiles
 git pull
 
-for DOTFILE in `find ~/dotfiles -name "\.*" -type f | grep -v "/.git"`
+for DOTFILE in `list.sh`
 do
     [ -f "$DOTFILE" ] && source "$DOTFILE"
 done
