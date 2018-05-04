@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # source dotfiles
-for dotfile in `~/dotfiles/list.sh`
+for dotfile in ~/dotfiles/.{aliases,colors,iterm2,prompt};
 do
     [ -f "$dotfile" ] && source "$dotfile"
 done
