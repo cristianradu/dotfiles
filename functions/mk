@@ -6,7 +6,7 @@
 # usage: mk <dir>
 
 mk () {
-	mkdir -p "$@" && cd "$@"
+  mkdir -p "$@" && cd "$@"
 }
 
 export -f mk
