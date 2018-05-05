@@ -3,7 +3,7 @@
 # mk
 # creates a new directory and enters it
 #
-# usage: mk dirname
+# usage: mk <dir>
 
 mk () {
 	mkdir -p "$@" && cd "$@"
