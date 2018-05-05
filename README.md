@@ -10,10 +10,9 @@ git clone https://github.com/cristianradu/dotfiles.git ~/dotfiles
 
 # run init script
 ~/dotfiles/init.sh
-
 ```
 
-Init script will source all dotfiles and automatically add itself to `~/.bashrc`
+Init script will source all dotfiles and automatically add itself (once) to `~/.bashrc`
 
 ### Update
 
