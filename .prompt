@@ -1,66 +1,64 @@
-#!/usr/bin/env bash
-
 # adapted from
 # https://github.com/mathiasbynens/dotfiles/blob/master/.bash_prompt
 
 
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
-    export TERM='gnome-256color';
+  export TERM='gnome-256color';
 elif infocmp xterm-256color >/dev/null 2>&1; then
-    export TERM='xterm-256color';
+  export TERM='xterm-256color';
 fi;
 
 
 # -- git branch info -------------------
 
-prompt_git() {
-    local s='';
-    local branchName='';
+prompt_git () {
+  local s='';
+  local branchName='';
 
-    # Check if the current directory is in a Git repository.
-    if [ $(git rev-parse --is-inside-work-tree &>/dev/null; echo "${?}") == '0' ]; then
+  # Check if the current directory is in a Git repository.
+  if [ $(git rev-parse --is-inside-work-tree &>/dev/null; echo "${?}") == '0' ]; then
 
-        # check if the current directory is in .git before running git checks
-        if [ "$(git rev-parse --is-inside-git-dir 2> /dev/null)" == 'false' ]; then
+    # check if the current directory is in .git before running git checks
+    if [ "$(git rev-parse --is-inside-git-dir 2> /dev/null)" == 'false' ]; then
 
-            # Ensure the index is up to date.
-            git update-index --really-refresh -q &>/dev/null;
+      # Ensure the index is up to date.
+      git update-index --really-refresh -q &>/dev/null;
 
-            # Check for uncommitted changes in the index.
-            if ! $(git diff --quiet --ignore-submodules --cached); then
-                s+='+';
-            fi;
+      # Check for uncommitted changes in the index.
+      if ! $(git diff --quiet --ignore-submodules --cached); then
+        s+='+';
+      fi;
 
-            # Check for unstaged changes.
-            if ! $(git diff-files --quiet --ignore-submodules --); then
-                s+='!';
-            fi;
+      # Check for unstaged changes.
+      if ! $(git diff-files --quiet --ignore-submodules --); then
+        s+='!';
+      fi;
 
-            # Check for untracked files.
-            if [ -n "$(git ls-files --others --exclude-standard)" ]; then
-                s+='?';
-            fi;
+      # Check for untracked files.
+      if [ -n "$(git ls-files --others --exclude-standard)" ]; then
+        s+='?';
+      fi;
 
-            # Check for stashed files.
-            if $(git rev-parse --verify refs/stash &>/dev/null); then
-                s+='$';
-            fi;
+      # Check for stashed files.
+      if $(git rev-parse --verify refs/stash &>/dev/null); then
+        s+='$';
+      fi;
 
-        fi;
-
-        # Get the short symbolic ref.
-        # If HEAD isn’t a symbolic ref, get the short SHA for the latest commit
-        # Otherwise, just give up.
-        branchName="$(git symbolic-ref --quiet --short HEAD 2> /dev/null || \
-            git rev-parse --short HEAD 2> /dev/null || \
-            echo '(unknown)')";
-
-        [ -n "${s}" ] && s=" ${s}";
-
-        echo -e " ${1}[${branchName}${s}]";
-    else
-        return;
     fi;
+
+    # Get the short symbolic ref.
+    # If HEAD isn’t a symbolic ref, get the short SHA for the latest commit
+    # Otherwise, just give up.
+    branchName="$(git symbolic-ref --quiet --short HEAD 2> /dev/null || \
+      git rev-parse --short HEAD 2> /dev/null || \
+      echo '(unknown)')";
+
+    [ -n "${s}" ] && s=" ${s}";
+
+    echo -e " ${1}[${branchName}${s}]";
+  else
+    return;
+  fi;
 }
 
 
@@ -94,29 +92,29 @@ BWhite='\033[1;37m'       # White
 
 # Highlight the user name when logged in as root.
 if [[ `whoami` == "root" ]]; then
-    UserStyle="${BRed}";
+  UserStyle="${BRed}";
 else
-    UserStyle="${Green}";
+  UserStyle="${Green}";
 fi;
 
 # Highlight the hostname when connected via SSH.
 if [[ "${SSH_TTY}" ]]; then
-    HostStyle="${BYellow}";
+  HostStyle="${BYellow}";
 else
-    HostStyle="${Yellow}";
+  HostStyle="${Yellow}";
 fi;
 
 # Set the terminal title and prompt.
-PS1="\[\033]0;\W\007\]"; # working directory base name
-PS1+="\[${Reset}\]\n"; # newline
-PS1+="\[${UserStyle}\]\u"; # username
+PS1="\[\033]0;\W\007\]";                  # working directory base name
+PS1+="\[${Reset}\]\n";                    # newline
+PS1+="\[${UserStyle}\]\u";                # username
 PS1+="\[${Reset}\] @ ";
-PS1+="\[${HostStyle}\]\h"; # host
+PS1+="\[${HostStyle}\]\h";                # host
 PS1+="\[${Reset}\] : ";
-PS1+="\[${BBlue}\]\w"; # working directory full path
+PS1+="\[${BBlue}\]\w";                    # working directory full path
 PS1+="\$(prompt_git \"\[${BPurple}\]\")"; # Git repository details
 PS1+="\n";
-PS1+="\[${White}\]\$ \[${Reset}\]"; # `$` (and reset color)
+PS1+="\[${White}\]\$ \[${Reset}\]";       # `$` (and reset color)
 export PS1;
 
 PS2="\[${Yellow}\]→ \[${Reset}\]";
