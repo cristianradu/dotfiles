@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # adapted from
 # https://github.com/mathiasbynens/dotfiles/blob/master/.aliases
@@ -12,10 +12,12 @@ alias ....="cd ../../.."
 
 
 # Detect which `ls` flavor is in use
-if ls --color > /dev/null 2>&1; then # GNU `ls`
-    colorflag="--color"
-else # macOS `ls`
-    colorflag="-G"
+if ls --color > /dev/null 2>&1; then
+  # GNU `ls`
+  colorflag="--color"
+else
+  # macOS `ls`
+  colorflag="-G"
 fi
 # `ls` colors are defined in .colors
 
@@ -26,10 +28,12 @@ alias l="ls -ahlF ${colorflag}"
 alias lsd="ls -hlF ${colorflag} | grep --color=never '^d'"
 
 # List all, grouping directories first
-if [ "$OSTYPE" == linux-gnu ]; then  # GNU
-    alias ldf='ls -ahlF --color --group-directories-first'
-else # macOS. install `gls` with `brew install coreutils`
-    alias ldf='gls -ahlFG --group-directories-first'
+if [ "$OSTYPE" == linux-gnu ]; then
+  # GNU
+  alias ldf='ls -ahlF --color --group-directories-first'
+else
+  # macOS. install `gls` with `brew install coreutils`
+  alias ldf='gls -ahlFG --group-directories-first'
 fi
 
 # Always use color output for `ls`
@@ -42,20 +46,25 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
+
 # IP addresses
 alias remoteip="dig +short myip.opendns.com @resolver1.opendns.com"
-if [ "$OSTYPE" == linux-gnu ]; then  # GNU
-    alias localip="echo $(hostname -I)"
-else # macOS
-    alias localip="ipconfig getifaddr en0"
+if [ "$OSTYPE" == linux-gnu ]; then
+  # GNU
+  alias localip="echo $(hostname -I)"
+else
+  # macOS
+  alias localip="ipconfig getifaddr en0"
 fi
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
-# Lock the screen (when going AFK)
-alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+# Flush DNS
+alias flush-dns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
+
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
@@ -67,7 +76,12 @@ alias t2="tree -L 2 --dirsfirst"
 alias t3="tree -L 3 --dirsfirst"
 
 
-# Misc utilities
+# Development environment helpers
 alias fix-sass="npm rebuild node-sass"
-alias flush-dns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
+
+
+# Lock the screen (when going AFK); macOS only
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+
+
 alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
