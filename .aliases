@@ -65,3 +65,9 @@ alias path='echo -e ${PATH//:/\\n}'
 alias t1="tree -L 1 --dirsfirst"
 alias t2="tree -L 2 --dirsfirst"
 alias t3="tree -L 3 --dirsfirst"
+
+
+# Misc utilities
+alias fix-sass="npm rebuild node-sass"
+alias flush-dns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
+alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
