@@ -4,9 +4,9 @@
 # https://github.com/paulmillr/dotfiles/blob/master/symlink-dotfiles.sh
 
 today=`date "+%Y%m%d"`
-dotfiles="~/dotfiles"
+dotfiles=~/dotfiles
 
-if [[ -d "$dotfiles" ]]; then
+if [[ -d $dotfiles ]]; then
   echo "Symlinking dotfiles from $dotfiles:"
 else
   echo "$dotfiles does not exist!"
@@ -15,7 +15,7 @@ fi
 
 for dotfile in .{bash_profile,bashrc,editorconfig,gitconfig,gitignore};
 do
-  if [[ -f ~/$dotfile ]]
+  if [[ -f ~/$dotfile ]]; then
     mv ~/$dotfile ~/${dotfile}.$today
     echo "$dotfile already existed and was renamed to ${dotfile}.$today"
   fi
