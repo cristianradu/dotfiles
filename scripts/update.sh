@@ -1,6 +1,8 @@
 #!/bin/bash
 
+# pull latest version of the repo
 cd ~/dotfiles
-git pull
+git pull --ff-only
 
-~/dotfiles/scripts/init.sh
+# source dotfiles
+source ~/.bash_profile
