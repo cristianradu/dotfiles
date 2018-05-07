@@ -1,0 +1,6 @@
+# sources all functions defined in ~/dotfiles/functions
+for func in `find ~/dotfiles/functions -type f`
+do
+    [ -f "$func" ] && source "$func"
+done
+unset func

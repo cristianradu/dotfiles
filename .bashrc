@@ -4,11 +4,7 @@
 
 # dotfiles
 # https://github.com/cristianradu/dotfiles
-for dotfile in ~/dotfiles/.{aliases,colors,exports,inputrc,iterm2,prompt};
-do
-  [ -f "$dotfile" ] && source "$dotfile"
-done
-for dotfile in `find ~/dotfiles/functions -type f`;
+for dotfile in ~/dotfiles/.{aliases,colors,functions,exports,inputrc,iterm2,prompt};
 do
   [ -f "$dotfile" ] && source "$dotfile"
 done
