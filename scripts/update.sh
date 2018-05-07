@@ -3,4 +3,4 @@
 cd ~/dotfiles
 git pull
 
-~/dotfiles/init.sh
+~/dotfiles/scripts/init.sh
