@@ -4,9 +4,9 @@
 # https://github.com/paulmillr/dotfiles/blob/master/symlink-dotfiles.sh
 
 today=`date "+%Y%m%d"`
-dotfiles="~/dotfiles"
+dotfiles=~/dotfiles
 
-if [[ -d "$dotfiles" ]]; then
+if [[ -d $dotfiles ]]; then
   echo "Symlinking dotfiles from $dotfiles:"
 else
   echo "$dotfiles does not exist!"
