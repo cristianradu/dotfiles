@@ -3,9 +3,6 @@
 
 #!/bin/bash
 
-# Automatically prepend `cd` to directory names.
-shopt -s autocd
-
 # Autocorrect typos in path names when using the `cd` command.
 shopt -s cdspell
 
