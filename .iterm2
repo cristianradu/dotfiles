@@ -7,12 +7,12 @@ test -e "~/.iterm2_shell_integration.bash" && source "~/.iterm2_shell_integratio
 
 # iTerm2 tab titles
 title () {
-    if [ "$1" ]
-    then
-        export PROMPT_COMMAND='__bp_precmd_invoke_cmd'
-        echo -ne "\033]0;${*}\007"
-    else
-        export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/\~}\007";__bp_precmd_invoke_cmd'
-    fi
+  if [ "$1" ]
+  then
+    export PROMPT_COMMAND='__bp_precmd_invoke_cmd'
+    echo -ne "\033]0;${*}\007"
+  else
+    export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/\~}\007";__bp_precmd_invoke_cmd'
+  fi
 }
 export -f title
