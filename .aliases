@@ -78,8 +78,9 @@ alias t3="tree -L 3 --dirsfirst"
 alias fix-sass="npm rebuild node-sass"
 
 
-# Lock the screen (when going AFK); macOS only
-alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+# -- macOS-only aliases ----------------
 
+# Lock the screen (when going AFK)
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
 alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
