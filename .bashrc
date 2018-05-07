@@ -9,4 +9,7 @@ do
 done
 unset dotfile
 
+# local environment settings
+source ~/.local
+
 # --------------------------------------
