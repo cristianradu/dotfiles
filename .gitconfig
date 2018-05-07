@@ -1,5 +1,6 @@
 # adapted from
 # https://github.com/mathiasbynens/dotfiles/blob/master/.gitconfig
+# https://github.com/alrra/dotfiles/blob/master/src/git/gitconfig
 
 [alias]
 
@@ -135,11 +136,6 @@
   changed = green
   untracked = cyan
 
-[commit]
-
-  # https://help.github.com/articles/signing-commits-using-gpg/
-  gpgsign = true
-
 [diff]
 
   # Detect copies as well as renames
@@ -188,3 +184,19 @@
 [url "git://gist.github.com/"]
 
   insteadOf = "gist:"
+
+[user]
+
+  # Don't guess the user's identity.
+  # https://github.com/git/git/blob/90f7b16b3adc78d4bbabbd426fb69aa78c714f71/Documentation/config.txt#L2847-L2855
+  useConfigOnly = true
+
+[include]
+
+  # Load local configs.
+  # https://git-scm.com/docs/git-config#_includes
+  #
+  # [!] The following needs to remain at the end of this file in
+  #     order to allow any of the above configs to be overwritten
+  #     by the local ones
+  path = ~/.gitconfig.local
