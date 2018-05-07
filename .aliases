@@ -77,6 +77,8 @@ alias t3="tree -L 3 --dirsfirst"
 # Development environment helpers
 alias fix-sass="npm rebuild node-sass"
 
+alias cls="clear"
+
 
 # -- macOS-only aliases ----------------
 
