@@ -1,0 +1,13 @@
+# f
+# find shorthand
+#
+# usage: f <pattern>
+
+# adapted from
+# https://github.com/paulirish/dotfiles/blob/master/.functions
+
+f () {
+  find . -name "$1" 2>&1 | grep -v 'Permission denied'
+}
+
+export -f f
