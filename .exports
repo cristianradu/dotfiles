@@ -35,3 +35,5 @@ export MANPAGER="less -X";
 export GPG_TTY=$(tty);
 
 # `ls` color-related exports are in .colors
+
+export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
