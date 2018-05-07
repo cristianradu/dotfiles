@@ -3,6 +3,7 @@
 # adapted from
 # https://github.com/paulmillr/dotfiles/blob/master/symlink-dotfiles.sh
 
+today=`date "+%Y%m%d"`
 dotfiles="~/dotfiles"
 
 if [[ -d "$dotfiles" ]]; then
@@ -15,16 +16,15 @@ fi
 for dotfile in .{bash_profile,bashrc,editorconfig,gitconfig,gitignore};
 do
   if [[ -f ~/$dotfile ]]
-    mv ~/$dotfile ~/${dotfile}_bak
-    echo "$dotfile already existed and was renamed to ${dotfile}_bak"
+    mv ~/$dotfile ~/${dotfile}.$today
+    echo "$dotfile already existed and was renamed to ${dotfile}.$today"
   fi
   ln -s $dotfiles/$dotfile ~/$dotfile
 done
 
 unset dotfile
 unset dotfiles
+unset today
 
-
-# if [[ `uname` == 'Darwin' ]]; then
-#   link "$dotfiles/sublime/Packages/User/Preferences.sublime-settings" "$HOME/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
-# fi
+# source dotfiles
+source ~/.bash_profile
