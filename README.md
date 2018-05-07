@@ -26,7 +26,7 @@ This will do a `git pull` and re-source the dotfiles.
 
 ### Local Settings
 
-For machine-specific settings you can create a `~/.local` file and add there any necessary commands. The file will get sourced automatically. Example:
+For machine-specific settings you can create a `~/.bash.local` file and add there any necessary commands. The file will get sourced automatically. Example:
 
 ```bash
 export PATH="$PATH:~/dotfiles/scripts"
@@ -35,7 +35,6 @@ For local git settings (i.e. different user name/email), create a `~/.gitconfig.
 
 ```
 [user]
-
   name = Cristian Radu
   email = hi@cristianradu.com
 ```

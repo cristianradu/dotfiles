@@ -10,6 +10,6 @@ done
 unset dotfile
 
 # local environment settings
-[ -f ~/.local ] && source ~/.local
+[ -f ~/.bash.local ] && source ~/.bash.local
 
 # --------------------------------------
