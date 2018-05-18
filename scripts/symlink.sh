@@ -16,19 +16,19 @@ BBlue='\033[1;34m'        # Bright Blue
 backup_file () {
   # if a second param is given, append the contents of the input file to it
   if [[ $2 ]]; then
-    echo "# $1" >> 2
-    cat $1 >> $2
+    echo "# $1" >> ~/$2
+    cat ~/$1 >> ~/$2
     appended="Its contents was appended to ${BGreen}$2${Reset}."
   fi
 
   # backup the existing file, either with .bak or a timestamp
-  if [[ -f $1.bak ]]; then
+  if [[ -f ~/$1.bak ]]; then
     now=`date +%Y%m%d-%H%M%S`
-    mv $1 $1.$now
+    mv ~/$1 ~/$1.$now
     echo -e "${BYellow}$1${Reset} already exists and so is its backup. The file was renamed to ${Yellow}${dotfile}.$now${Reset}. $appended";
     unset now
   else
-    mv $1 $1.bak
+    mv ~/$1 ~/$1.bak
     echo -e "${BYellow}$1${Reset} already exists and was renamed to ${Yellow}${dotfile}.bak${Reset}. $appended";
   fi
 }
@@ -60,7 +60,7 @@ else
   exit 1;
 fi
 
-# bash_profile
+# symlink dotfiles
 symlink_file .bash_profile .bash.local
 symlink_file .bashrc .bash.local
 symlink_file .editorconfig
