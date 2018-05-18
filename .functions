@@ -1,6 +1,8 @@
-# sources all functions defined in ~/dotfiles/functions
-for func in `find ~/dotfiles/functions -type f`
+# sources all functions defined in dotfiles/functions
+path="$(dirname ${BASH_SOURCE[0]})"
+for func in `find $path/functions -type f`
 do
-    [ -f "$func" ] && source "$func"
+  [ -f "$func" ] && source "$func"
 done
 unset func
+unset path
