@@ -3,7 +3,7 @@
 
 # dotfiles
 # https://github.com/cristianradu/dotfiles
-for dotfile in ~/dotfiles/.{aliases,colors,functions,exports,inputrc,iterm2,options,prompt};
+for dotfile in ~/dotfiles/.{aliases,colors,functions,exports,inputrc,iterm2,macos,options,prompt};
 do
   [ -f "$dotfile" ] && source "$dotfile"
 done
