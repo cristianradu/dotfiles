@@ -54,7 +54,7 @@ cask 'vlc'
 
 # Quick Look plugins
 # https://github.com/sindresorhus/quick-look-plugins
-cask 'betterzipql'
+cask 'betterzip'
 cask 'qlcolorcode'
 cask 'qlimagesize'
 cask 'qlmarkdown'

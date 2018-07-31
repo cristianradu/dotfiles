@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# adapted from
+# https://github.com/mathiasbynens/dotfiles/blob/master/.macos
+
+# Disable the sound effects on boot
+sudo nvram SystemAudioVolume=" "
+
+
 # https://github.com/paulmillr/dotfiles/blob/master/bootstrap-new-system.sh
 
 echo 'Enter new hostname of the machine (e.g. macbook)'
