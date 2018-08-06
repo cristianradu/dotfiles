@@ -39,6 +39,7 @@ cask 'atom'
 cask 'iterm2'
 cask 'sequel-pro'
 cask 'sourcetree'
+cask 'transmit'
 
 cask '1password'
 cask 'alfred'
