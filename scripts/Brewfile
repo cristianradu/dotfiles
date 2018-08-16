@@ -7,53 +7,67 @@ tap 'homebrew/services'
 
 # --------------------------------------
 
+# os tools
 brew 'bash'
 brew 'coreutils'
 brew 'findutils'
 brew 'rsync'
+brew 'tldr'
 brew 'tree'
 brew 'wget'
 
+# libraries/databases
+brew 'mysql'
+brew 'python'
+brew 'ruby'
+
+# dev tools
 brew 'git'
+brew 'httpie'
+brew 'jq'
 brew 'node'
 brew 'npm'
 brew 'nvm'
 brew 'yarn'
-brew 'jq'
-
-brew 'mysql'
-brew 'python'
-brew 'ruby'
 
 # --------------------------------------
 
 cask_args appdir: '/Applications'
 
+# web browsers
 cask 'google-chrome'
 cask 'firefox'
 
+# text editors
 cask 'sublime-text'
 cask 'visual-studio-code'
-cask 'atom'
 
-cask 'iterm2'
-cask 'sequel-pro'
-cask 'sourcetree'
-cask 'transmit'
-
+# system tools
 cask '1password'
 cask 'alfred'
 cask 'bartender'
-cask 'dash'
 cask 'flux'
-cask 'slack'
-cask 'dropbox'
 cask 'the-unarchiver'
 
+# dev tools
+cask 'coderunner'
+cask 'dash'
+cask 'iterm2'
+cask 'nucleo'
+cask 'sequel-pro'
+cask 'sketch'
+cask 'sourcetree'
+cask 'transmit'
+
+# media
 cask 'handbrake'
 cask 'vlc'
 
-# Quick Look plugins
+# other apps
+cask 'dropbox'
+cask 'slack'
+
+# quick look plugins
 # https://github.com/sindresorhus/quick-look-plugins
 cask 'betterzip'
 cask 'qlcolorcode'
@@ -68,7 +82,7 @@ cask 'quicklook-json'
 cask 'suspicious-package'
 cask 'webpquicklook'
 
-# Fonts
+# fonts
 # https://github.com/caskroom/homebrew-fonts
 cask 'font-bebas-neue'
 cask 'font-fira-mono'
