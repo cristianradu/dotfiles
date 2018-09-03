@@ -3,6 +3,10 @@
 # adapted from
 # https://github.com/mathiasbynens/dotfiles/blob/master/.macos
 
+# Ask for the administrator password upfront
+sudo -v
+
+
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
 
