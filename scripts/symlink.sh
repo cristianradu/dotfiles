@@ -4,15 +4,6 @@
 
 dotfiles=~/dotfiles
 
-# colors
-Reset='\033[0m'
-Yellow='\033[0;33m'       # Yellow
-BRed='\033[1;31m'         # Bright Red
-BGreen='\033[1;32m'       # Bright Green
-BYellow='\033[1;33m'      # Bright Yellow
-BBlue='\033[1;34m'        # Bright Blue
-
-
 backup_file () {
   # if a second param is given, append the contents of the input file to it
   if [[ $2 ]]; then
@@ -51,6 +42,9 @@ symlink_file () {
 }
 
 # -- create symlinks -------------------
+
+# source color definitions
+source $dotfiles/.exports
 
 # check for the dotfiles dir
 if [[ -d $dotfiles ]]; then
