@@ -28,3 +28,8 @@ if [[ $? == 0 ]]; then
   echo -e "\n${Green}Updating MS Office...${Reset}"
   /Library/Application\ Support/Microsoft/MAU2.0/Microsoft\ AutoUpdate.app/Contents/MacOS/msupdate --install
 fi
+
+
+# update dotfiles
+echo -e "\n${Cyan}Updating dotfiles...${Reset}"
+~/dotfiles/scripts/update.sh
