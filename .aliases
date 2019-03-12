@@ -75,10 +75,10 @@ alias t3="tree -L 3 --dirsfirst"
 
 
 # Development environment helpers
-if type npm &> /dev/null
+if type npm &> /dev/null; then
   alias fix-node="sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}"
   alias fix-sass="npm rebuild node-sass"
-end
+fi
 
 alias cls="clear"
 
